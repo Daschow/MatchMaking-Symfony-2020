@@ -5,19 +5,20 @@
 {% block body %}
 <div class="center" id="tableau">
     <h1>Liste des match</h1>
+    <h2>Match en attente</h2>
 
     {# Curent match #}
     <table class="table striped tight sortable">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>PlayerA</th>
-                <th>PlayerB</th>
-                <th>Winner</th>
-                <th>ScorePlayerA</th>
-                <th>ScorePlayerB</th>
-                <th>Status</th>
-                <th>EncounterDate</th>
+                <th>Joueur 1</th>
+                <th>Joueur 1</th>
+                <th>Gagnant du match</th>
+                <th>Score du joueur 1</th>
+                <th>Score du joueur 2</th>
+                <th>Etat du match</th>
+                <th>Date du match</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -42,7 +43,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="9">no records found</td>
+                <td colspan="9">Aucune donnée</td>
             </tr>
         {% endfor %}
         </tbody>
@@ -50,10 +51,11 @@
     <br>
 
     {# latest match #}
+    <h2>Match en terminer</h2>
     <table class="table striped tight sortable">
 			<thead>
 				<tr>
-					<th>ID match</th>
+					<th>Id</th>
 					<th>Joueur 1</th>
 					<th>Joueur 2</th>
 					<th>Gagnant du match</th>
@@ -88,7 +90,7 @@
 					</tr>
 				{% else %}
 					<tr>
-						<td colspan="9">no records found</td>
+						<td colspan="9">Aucune donnée</td>
 					</tr>
 				{% endfor %}
 			</tbody>
