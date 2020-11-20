@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Player{% endblock %}
+
+{% block body %}
+    <div class="center ">
+    <h1 class="center">Page d'inscription</h1>
+    {{ include('player/_form.html.twig') }}
+    <br>
+    <button class="medium"><a href="{{ path('player_index') }}">Retour a la liste</a></button>
+    
+    </div>
+
+{% endblock %}

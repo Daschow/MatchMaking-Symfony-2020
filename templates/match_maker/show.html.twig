@@ -1,0 +1,50 @@
+{% extends '/base.html.twig' %}
+
+{% block title %}MatchMaker{% endblock %}
+
+{% block body %}
+    <h1>MatchMaker</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ match_maker.id }}</td>
+            </tr>
+            <tr>
+                <th>playerA</th>
+                <td>{{ match_maker.playerA.username }}</td>
+            </tr>
+            <tr>
+                <th>playerB</th>
+                <td>{{ match_maker.playerB.username }}</td>
+            </tr>
+            <tr>
+                <th>Winner</th>
+                <td>{{ match_maker.winner }}</td>
+            </tr>
+            <tr>
+                <th>scorePlayerA</th>
+                <td>{{ match_maker.scorePlayerA }}</td>
+            </tr>
+            <tr>
+                <th>scorePlayerB</th>
+                <td>{{ match_maker.scorePlayerB }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ match_maker.status }}</td>
+            </tr>
+            <tr>
+                <th>EncounterDate</th>
+                <td>{{ match_maker.encounterDate ? match_maker.encounterDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('match_maker_index') }}">back to list</a>
+
+    <a href="{{ path('match_maker_edit', {'id': match_maker.id}) }}">edit</a>
+
+    {{ include('match_maker/_delete_form.html.twig') }}
+{% endblock %}

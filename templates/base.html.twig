@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head class="main-nav">
+        <meta charset="UTF-8">
+        <!-- KICKSTART -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="/js/kickstart.js"></script>
+        <script src="/js/navbar.js"></script>
+        <link rel="stylesheet" href="/css/kickstart.css" media="all" />
+        <link rel="stylesheet" href="/css/index.css" media="all" />
+
+
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body class="background">
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+    <ul class="menu">
+    <li><a href="https://127.0.0.1">Home</a></li>
+    <li><a href="/player">Listes des joueurs</a></li>
+    <li class="rightaligned"><a href="/logout">Disconnect</a></li>
+    </ul>
+    {% else %}
+
+    <ul class="menu">
+    <li class="current"><a href="/">Home</a></li>
+    <li><a href="/login">Connecter</a></li>
+    <li><a href="/player/new">Inscription</a></li>
+    </ul>
+    {% endif %}
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List joueurs{% endblock %}
+
+{% block body %}
+<div class="center" id="tableau">
+    <h1>List des joueurs</h1>
+
+    <table class="table striped tight sortable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for player in players %}
+            <tr>
+                <td>{{ player.id }}</td>
+                <td>{{ player.username }}</td>
+                <td>{{ player.roles ? player.roles|json_encode : '' }}</td>
+                <td>{{ player.password }}</td>
+                <td>
+                    <a href="{{ path('player_show', {'id': player.id}) }}"><input type="button" value="Details"></a>
+                    <a href="{{ path('player_edit', {'id': player.id}) }}"><input type="button" value="Modification"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('player_new') }}"><input type="button" value="Ajouter utilisateurs"></a>
+{% endblock %}
