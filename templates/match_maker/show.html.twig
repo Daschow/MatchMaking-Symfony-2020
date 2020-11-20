@@ -12,23 +12,23 @@
                 <td>{{ match_maker.id }}</td>
             </tr>
             <tr>
-                <th>playerA</th>
+                <th>Joueur 1</th>
                 <td>{{ match_maker.playerA.username }}</td>
             </tr>
             <tr>
-                <th>playerB</th>
+                <th>Joueur 2</th>
                 <td>{{ match_maker.playerB.username }}</td>
             </tr>
             <tr>
-                <th>Winner</th>
+                <th>Gagnant</th>
                 <td>{{ match_maker.winner }}</td>
             </tr>
             <tr>
-                <th>scorePlayerA</th>
+                <th>Score joueur 1</th>
                 <td>{{ match_maker.scorePlayerA }}</td>
             </tr>
             <tr>
-                <th>scorePlayerB</th>
+                <th>Score joueur 2</th>
                 <td>{{ match_maker.scorePlayerB }}</td>
             </tr>
             <tr>
@@ -36,15 +36,15 @@
                 <td>{{ match_maker.status }}</td>
             </tr>
             <tr>
-                <th>EncounterDate</th>
+                <th>Date du match</th>
                 <td>{{ match_maker.encounterDate ? match_maker.encounterDate|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('match_maker_index') }}">back to list</a>
+    <a href="{{ path('match_maker_index') }}"><input type="button" value="Retour a la liste"></a>
 
-    <a href="{{ path('match_maker_edit', {'id': match_maker.id}) }}">edit</a>
+    <a href="{{ path('match_maker_edit', {'id': match_maker.id}) }}"><input type="button" value="Modifier"></a>
 
     {{ include('match_maker/_delete_form.html.twig') }}
 {% endblock %}
